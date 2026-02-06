@@ -8,27 +8,39 @@
 
 <body>
 
-    <%- include('navbar') %>
+   <%- include('navbar') %>
 
-        <h2>All Recipes</h2>
+<h2>All Recipes</h2>
 
-        <% recipes.forEach(recipe=> { %>
-            <div>
-                <h3>
-                    <%= recipe.title %>
-                </h3>
-                <p>
-                    <%= recipe.description %>
-                </p>
-                <p><b>By:</b>
-                    <%= recipe.createdBy.username %>
-                </p>
+<a href="/recipes/new">
+  <button>Add New Recipe</button>
+</a>
 
-                <% if (user.role==='admin' ) { %>
-                    <a href="/recipes/delete/<%= recipe._id %>">Delete</a>
-                    <% } %>
-            </div>
-            <% }) %>
+<% recipes.forEach(recipe => { %>
+  <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+    <h3><%= recipe.title %></h3>
+    <p><%= recipe.description %></p>
+    <p><b>By:</b> <%= recipe.createdBy.username %></p>
+
+    <!-- View Button -->
+    <a href="/recipes/view/<%= recipe._id %>">
+      <button>View</button>
+    </a>
+
+    <!-- Edit Button -->
+    <% if (user.id === recipe.createdBy._id.toString()) { %>
+      <a href="/recipes/edit/<%= recipe._id %>">
+        <button>Edit</button>
+      </a>
+    <% } %>
+
+    <!-- Delete Button -->
+   <a href="/recipes/delete/<%= recipe._id %>">
+  <button>Delete</button>
+</a>
+
+  </div>
+<% }) %>
 
 </body>
 

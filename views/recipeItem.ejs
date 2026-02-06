@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <%- include('navbar') %>
+
+<h2><%= recipe.title %></h2>
+<p><b>Description:</b> <%= recipe.description %></p>
+<p><b>Ingredients:</b> <%= recipe.ingredients %></p>
+<p><b>Instructions:</b> <%= recipe.instructions %></p>
+<p><b>By:</b> <%= recipe.createdBy.username %></p>
+
+<a href="/recipes"><button>Back</button></a>
+
+
+
+</body>
+
+</html>

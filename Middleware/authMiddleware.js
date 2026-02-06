@@ -6,9 +6,9 @@ exports.verifyToken = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
+    req.user = decoded; // id + role
     next();
   } catch (err) {
-    res.redirect('/login');
+    return res.redirect('/login');
   }
 };

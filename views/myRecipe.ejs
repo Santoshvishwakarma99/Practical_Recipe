@@ -12,8 +12,9 @@
     <%- include('navbar') %>
 
         <h2>My Recipes</h2>
+
         <% recipes.forEach(recipe=> { %>
-            <div>
+            <div style="border:1px solid #ccc; padding:10px; margin:10px;">
                 <h3>
                     <%= recipe.title %>
                 </h3>

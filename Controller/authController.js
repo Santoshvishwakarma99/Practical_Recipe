@@ -23,7 +23,7 @@ exports.login = async (req, res) => {
   );
 
   res.cookie('token', token, { httpOnly: true });
-  res.redirect('/recipe');
+  res.redirect('/recipes');
 };
 
 exports.logout = (req, res) => {

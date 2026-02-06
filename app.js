@@ -9,19 +9,26 @@ const recipeRoutes = require('./Router/recipeRoutes');
 const commentRoutes = require('./Router/commentRoutes');
 
 const app = express();
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.set('view engine', 'ejs');
 
+// MongoDB connect
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
+// Routes
 app.use('/', authRoutes);
-app.use('/recipe', recipeRoutes);
+app.use('/recipes', recipeRoutes);
 app.use('/comments', commentRoutes);
 
-app.get('/', (req, res) => res.redirect('/recipe'));
+app.get('/', (req, res) => {
+  res.redirect('/recipes');
+});
 
-app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+app.listen(3000, () => {
+  console.log("Server running at http://localhost:3000");
+});

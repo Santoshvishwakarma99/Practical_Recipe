@@ -6,5 +6,5 @@ exports.addComment = async (req, res) => {
     recipe: req.body.recipeId,
     user: req.user.id
   });
-  res.redirect('/recipe');
+  res.redirect('/recipes');
 };

@@ -11,14 +11,15 @@
 
     <%- include('navbar') %>
 
-        <h2>Add New Recipe</h2>
-        <form method="POST" action="/recipe/new">
-            <input name="title" placeholder="Recipe Title" required /><br><br>
-            <textarea name="description" placeholder="price"></textarea><br><br>
-            <textarea name="ingredients" placeholder="Description"></textarea><br><br>
-            <textarea name="instructions" placeholder="Instructions"></textarea><br><br>
-            <button type="submit">Submit Recipe</button>
-        </form>
+<h2><%= recipe ? ' Edit Recipe' : ' Add Recipe' %></h2>
+
+<form method="POST" action="<%= recipe ? '/recipes/edit/' + recipe._id : '/recipes/new' %>">
+  <input name="title" placeholder="Recipe Title" value="<%= recipe ? recipe.title : '' %>" required /><br><br>
+  <textarea name="description" placeholder="Description"><%= recipe ? recipe.description : '' %></textarea><br><br>
+  <textarea name="ingredients" placeholder="Ingredients"><%= recipe ? recipe.ingredients : '' %></textarea><br><br>
+  <textarea name="instructions" placeholder="Instructions"><%= recipe ? recipe.instructions : '' %></textarea><br><br>
+  <button type="submit"><%= recipe ? 'Update' : 'Submit' %></button>
+</form>
 
 
 
