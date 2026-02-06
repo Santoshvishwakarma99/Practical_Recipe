@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Recipes</title>
+</head>
+
+<body>
+
+    <%- include('navbar') %>
+
+        <h2>All Recipes</h2>
+
+        <% recipes.forEach(recipe=> { %>
+            <div>
+                <h3>
+                    <%= recipe.title %>
+                </h3>
+                <p>
+                    <%= recipe.description %>
+                </p>
+                <p><b>By:</b>
+                    <%= recipe.createdBy.username %>
+                </p>
+
+                <% if (user.role==='admin' ) { %>
+                    <a href="/recipes/delete/<%= recipe._id %>">Delete</a>
+                    <% } %>
+            </div>
+            <% }) %>
+
+</body>
+
+</html>

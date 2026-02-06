@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <%- include('navbar') %>
+
+        <h2>Add New Recipe</h2>
+        <form method="POST" action="/recipe/new">
+            <input name="title" placeholder="Recipe Title" required /><br><br>
+            <textarea name="description" placeholder="price"></textarea><br><br>
+            <textarea name="ingredients" placeholder="Description"></textarea><br><br>
+            <textarea name="instructions" placeholder="Instructions"></textarea><br><br>
+            <button type="submit">Submit Recipe</button>
+        </form>
+
+
+
+</body>
+
+</html>
